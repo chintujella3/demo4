@@ -1,0 +1,157 @@
+<!--<nav>
+    <a routerLink="/orders">Orders</a>
+    <a routerLink="/stores">Stores</a>
+</nav>-->
+<!-- Routed views go here -->
+
+
+<!--I'm not confident on how to use routers so I commented these out for now -M-->
+
+<md-sidenav-layout>
+    <md-sidenav #start (open)="closeStartButton.focus()" mode="push">
+        <div class="sidenav-main">
+            Menu
+            <span class="fill-space"></span>
+            <button md-icon-button #closeStartButton color="primary" (click)="start.close()"><i class="material-icons">arrow_back</i></button>
+        </div>
+        <div class="sidenav-link">
+            <button md-button color="primary" (click)="start.close()"><i class="material-icons">add</i> Sidenav link</button>
+        </div>
+        <div class="sidenav-link">
+            <button md-button color="primary" (click)="start.close()"><i class="material-icons">edit</i> Sidenav link 2</button>
+        </div>
+    </md-sidenav>
+
+    <md-toolbar color="primary">
+        <button md-icon-button (click)="start.open()"><i class="material-icons">menu</i></button>
+        &emsp;
+        <svg id=logo version="1.1" x="0px" y="0px" viewBox="0 0 24 16.8" style="enable-background:new 0 0 24 16.8;" xml:space="preserve">
+            <path d="M23.7,4c0-2.6-1.7-4-4.7-4h-5v11.6h2.6V8.3H19h0.2l1.8,3.3h3l-2.5-3.8C22.9,7.1,23.7,5.8,23.7,4z M19,6.1h-2.4
+                V2.2H19c1.4,0,2.3,0.6,2.3,1.9C21.2,5.4,20.4,6.1,19,6.1z"/>
+            <path d="M5.4,0C5.4,0,5.5,0,5.4,0C2.2,0,0,2.3,0,5.7c0,3.5,2.2,5.9,5.5,5.9c0,0,0,0,0,0c1.4,0,2.9-0.4,4.1-1.2v0.7
+                c0,2.1-1.5,3.5-3.9,3.5c-1.5,0-2.7-0.5-3.9-1.3l-1.1,1.9c1.5,1,3.2,1.6,5.1,1.6c3.9,0,6.4-2.2,6.4-5.7V0H5.4z M9.6,6.1
+                c0,1.9-1.5,3.5-3.5,3.5C3.9,9.6,2.5,8,2.5,5.8c0-2.2,1.5-3.6,3.6-3.6c0,0,0,0,0,0h3.5V6.1z"/>
+            <rect x="13.9" y="13.8" class="st0" width="10.1" height="2.2"/>
+            </svg>
+        <span>Scotts ROE</span>
+    </md-toolbar>
+    <md-tab-group class="mtab">
+        <md-tab>
+            <template md-tab-label><i class="material-icons md-18">shopping_cart</i> Orders</template>
+            <md-card class="toolbar">
+                <button md-button color="accent"><i class="material-icons md-18">add</i> New order</button>
+                <button md-button color="accent"><i class="material-icons md-18">edit</i> Edit order</button>
+                <button md-button color="accent"><i class="material-icons md-18">save</i> Save for later</button>
+                <button md-button color="accent"><i class="material-icons md-18">cancel</i> Cancel changes</button>
+                <button md-button color="accent"><i class="material-icons md-18">delete</i> Delete order</button>
+            </md-card>
+            <div class="page">
+                <md-tab-group class="stepper">
+                    <md-tab>
+                        <template md-tab-label>Program</template>
+                        <md-card>
+                            Test content 1
+                        </md-card>
+                    </md-tab>
+                    <md-tab>
+                        <template md-tab-label>Stores</template>
+                        <md-card>
+                            Test content 2
+                        </md-card>
+                    </md-tab>
+                    <md-tab>
+                        <template md-tab-label>Products</template>
+                        <div class="substepper white-theme">
+                            <button md-button color="primary" class="substep">
+                                Overview
+                            </button>
+                            <button md-button color="primary" class="substep">
+                                Matched products
+                            </button>
+                            <button md-button color="primary" class="substep">
+                                Discontinued suggestions
+                            </button>
+                            <button md-button color="primary" class="substep">
+                                New products
+                            </button>
+                            <button md-button color="primary" class="substep">
+                                Recommended
+                            </button>
+                            <button md-button color="primary" class="substep">
+                                Full catalog
+                            </button>
+                            <span class="step-stretch"></span>
+                        </div>
+                        <md-card>
+                            Test content 3
+                        </md-card>
+                    </md-tab>
+                    <md-tab>
+                        <template md-tab-label>Order info</template>
+                        <md-card>
+                            Test content 4
+                        </md-card>
+                    </md-tab>
+                </md-tab-group>
+            </div>
+            <div class="footer">
+                <span class="fill-space"></span>
+                <button md-button color="accent">Back</button>
+                <button md-raised-button color="accent" md-tooltip="Ctrl + Enter" tooltip-position="above">Next</button>
+            </div>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label><i class="material-icons md-18">history</i><a [routerLink]="['/stores']"> Sales history</a></template>
+            <md-card class="toolbar">
+                <button md-button color="accent"><i class="material-icons md-18">save</i> Export</button>
+            </md-card>
+            <div class="page">
+                <md-card>  
+                    <router-outlet name="salesHistory"></router-outlet>
+                </md-card>
+            </div>
+            <div class="footer">
+            </div>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label><i class="material-icons md-18">description</i> Forms</template>
+            <md-card class="toolbar">
+                <button md-button color="accent">Toolbar button</button>
+            </md-card>
+            <div class="page">
+                <md-card>
+                    Test content
+                </md-card>
+            </div>
+            <div class="footer">
+            </div>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label><i class="material-icons md-18">person</i></template>
+            <md-card class="toolbar">
+                <button md-button color="accent">Toolbar button</button>
+            </md-card>
+            <div class="page">
+                <md-card>
+                    Test content
+                </md-card>
+            </div>
+            <div class="footer">
+            </div>
+        </md-tab>
+        <md-tab>
+            <template md-tab-label><i class="material-icons md-18">refresh</i></template>
+            <md-card class="toolbar">
+                <button md-button color="accent">Toolbar button</button>
+            </md-card>
+            <div class="page">
+                <md-card>
+                    Test content
+                </md-card>
+            </div>
+            <div class="footer">
+            </div>
+        </md-tab>
+    </md-tab-group>
+</md-sidenav-layout>
+<router-outlet></router-outlet>
